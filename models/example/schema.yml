@@ -1,15 +1,33 @@
-
 version: 2
 
 models:
   - name: my_first_dbt_model
     description: "A starter dbt model"
+    latest_version: 1
+    semantic_model:
+      enabled: true
+      name: my_first_dbt_model
+    config:
+      contract:
+        enforced: true
     columns:
       - name: id
         description: "The primary key for this table"
+        data_type: int
         data_tests:
           - unique
           - not_null
+    versions:
+      - v: 1
+      - v: 2
+        columns:
+          - include: all
+          - name: first_name
+            description: "A made-up first name for the example record"
+            data_type: string
+          - name: last_name
+            description: "A made-up last name for the example record"
+            data_type: string
 
   - name: my_second_dbt_model
     description: "A starter dbt model"
