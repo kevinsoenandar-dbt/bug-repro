@@ -5,6 +5,8 @@
 name: 'bug_repro'
 version: '1.0.0'
 
+profile: 'kev_setup'
+
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
